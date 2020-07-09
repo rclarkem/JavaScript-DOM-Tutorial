@@ -1,21 +1,25 @@
-const listItems = document.querySelectorAll('#book-list ul li');
+let h2 = document.querySelector('#book-list h2')
+// console.log(h2)
 
-Array.from(listItems).forEach(function(item){
-  item.addEventListener('click', (e) => {
+// h2.addEventListener('click', function(e){
+//    console.log(e.target)
+//    console.log(e)
+// })
 
-    const li = e.target.parentElement;
-    console.log('child element to remove:', li);
-    console.log('parent element to remove child from:', li.parentElement);
-    li.parentNode.removeChild(li);
+let deleButtons = Array.from(document.querySelectorAll('#book-list .delete'))
+console.log(deleButtons)
 
-  });
+deleButtons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    const li = e.target.parentElement
+    li.parentNode.removeChild(li)
+  })
 });
 
-// prevent default behaviour
 
-const link = document.querySelector('#page-banner a');
-
-link.addEventListener('click', function(e){
-  e.preventDefault();
-  console.log('Navigation to', e.target.textContent, 'was prevented');
-});
+let clickHere = document.querySelector('#page-banner a')
+// console.log(clickHere)
+clickHere.addEventListener('click', (e) => {
+  e.preventDefault()
+  console.log('navt to', e.target.textContent)
+} )
