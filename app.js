@@ -1,8 +1,7 @@
-const banner = document.querySelector('#page-banner');
+let pageBanner = document.querySelector('#page-banner')
+console.log(pageBanner, `The node type is ${pageBanner.nodeType}`)
+console.log(pageBanner, `The node name is ${pageBanner.nodeName}`)
+console.log(pageBanner, `Has Child nodes is:  ${pageBanner.hasChildNodes()}`)
 
-console.log('#page-banner node type is:', banner.nodeType);
-console.log('#page-banner node name is:', banner.nodeName);
-console.log('#page-banner has child nodes:', banner.hasChildNodes());
-
-const clonedBanner = banner.cloneNode(true);
-console.log(clonedBanner);
+const clonedBanner = pageBanner.cloneNode(true)
+console.log(clonedBanner)
