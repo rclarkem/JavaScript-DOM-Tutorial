@@ -60,7 +60,7 @@ bookForm.addEventListener('submit', (e) => {
 	e.target.title.value = '';
 });
 
-//helper append function
+//helper append function to doc
 function createAndAppendElement(tag, parent, id, className, callback) {
 	const element = document.createElement(tag);
 	parent.append(element);
