@@ -14,6 +14,7 @@ bookList.addEventListener('click', function (e) {
 	}
 });
 
+//Book search
 searchBooks.addEventListener('keyup', (e) => {
 	const searchTerm = e.target.value.toLowerCase();
 	const books = bookList.querySelectorAll('li');
