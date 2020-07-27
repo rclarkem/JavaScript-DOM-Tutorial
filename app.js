@@ -3,7 +3,7 @@ const bookList = document.querySelector('#book-list ul');
 const bookForm = document.forms['add-book'];
 const hideBooks = document.querySelector('#hide');
 const bookRead = document.querySelectorAll('.book-complete');
-const searchBooks = document.forms['search-books'].querySelector('input');
+
 
 //delete Function
 bookList.addEventListener('click', function (e) {
