@@ -1,8 +1,11 @@
+const searchBooks = document.forms['search-books'].querySelector('input');
 const bookList = document.querySelector('#book-list ul');
 const bookForm = document.forms['add-book'];
 const hideBooks = document.querySelector('#hide');
 const bookRead = document.querySelectorAll('.book-complete');
-const searchBooks = document.forms['search-books'].querySelector('input');
+const tabs = document.querySelector('.tabs');
+const panels = document.querySelectorAll('.panel');
+// console.log(panels)
 
 //delete Function
 bookList.addEventListener('click', function (e) {
@@ -13,6 +16,35 @@ bookList.addEventListener('click', function (e) {
   }
 });
 
+// tabbed panels
+tabs.addEventListener('click', (ev) => {
+  if (ev.target.matches('li')) {
+    const targetP = document.querySelector(ev.target.dataset.target);
+    panels.forEach((panel) => {
+      if (panel === targetP) {
+        panel.classList.add('active');
+      } else {
+        panel.classList.remove('active');
+      }
+    });
+  }
+});
+
+//tabs color
+tabs.addEventListener('click', (ev) => {
+  let tab = tabs.querySelectorAll('li');
+  if (ev.target.matches('li')) {
+    tab.forEach((item) => {
+      if (ev.target === item) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }
+});
+
+//Book search
 searchBooks.addEventListener('keyup', (e) => {
   const searchTerm = e.target.value.toLowerCase();
   const books = bookList.querySelectorAll('li');
@@ -59,6 +91,7 @@ function completeRead(ev) {
 bookForm.addEventListener('submit', (e) => {
   e.preventDefault();
   let text = e.target.title.value;
+  console.log(text);
   let newLI = createAndAppendElement('li', bookList, null, null, undefined);
   let checkBox = createAndAppendElement('input', newLI, null, 'book-complete', (e) => {
     e.setAttribute('type', 'checkbox');
